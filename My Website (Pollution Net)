@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<!-- Created By Samuel Odame -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Responsive Navbar with Search Box | Samuel Odame</title>
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+   <style>
+   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+ @media (min-width: 782px) and @media (max-width: 1400px) {
+     }
+  body{
+  background: #dfe3ee;
+}
+
+nav{
+  background: 
+#000336;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 100px;
+}
+nav .logo{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+nav .nav-items{
+  display: flex;
+  flex: 1;
+  padding: 0 0 0 40px;
+}
+nav .nav-items li{
+  list-style: none;
+  padding: 0 15px;
+}
+nav .nav-items li a{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav .nav-items li a:hover{
+  color: #ff3d00;
+}
+nav form{
+  display: flex;
+  height: 40px;
+  padding: 2px;
+  background: #1e232b;
+  min-width: 18%!important;
+  border-radius: 2px;
+  border: 1px solid rgba(155,155,155,0.2);
+}
+nav form .search-data{
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 17px;
+  border: none;
+  font-weight: 500;
+  background: none;
+}
+nav form button{
+  padding: 0 15px;
+  color: #fff;
+  font-size: 17px;
+  background: #ff3d00;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+nav form button:hover{
+  background: #e63600;
+}
+nav .menu-icon,
+nav .cancel-icon,
+nav .search-icon{
+  width: 40px;
+  text-align: center;
+  margin: 0 50px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+nav .menu-icon span,
+nav .cancel-icon,
+nav .search-icon{
+  display: none;
+}
+@media (min-width: 1245px) {
+  nav{
+    padding: 0 50px;
+  }
+}
+@media (min-width: 12px){
+  nav{
+    padding: 0px;
+  }
+  nav .logo{
+    flex: 2;
+    text-align: center;
+  }
+  nav .nav-items{
+    position: fixed;
+    z-index: 99;
+    top: 70px;
+    width: 100%;
+    left: -100%;
+    height: 100%;
+    padding: 10px 50px 0 50px;
+    text-align: center;
+    background: #1d3469;
+    display: inline-block;
+    transition: left 0.3s ease;
+  }
+  nav .nav-items.active{
+    left: 0px;
+  }
+  nav .nav-items li{
+    line-height: 40px;
+    margin: 30px 0;
+  }
+  nav .nav-items li a{
+    font-size: 20px;
+  }
+  nav form{
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    opacity: 0;
+    pointer-events: none;
+    transition: top 0.3s ease, opacity 0.1s ease;
+  }
+  nav form.active{
+    top: 95px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav form:before{
+    position: absolute;
+    content: "";
+    top: -13px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    border: 10px solid transparent;
+    border-bottom-color: #1e232b;
+    margin: -20px 0 0;
+  }
+  nav form:after{
+    position: absolute;
+    content: '';
+    height: 60px;
+    padding: 2px;
+    background: #1e232b;
+    border-radius: 2px;
+    min-width: calc(100% + 20px);
+    z-index: -2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  nav .menu-icon{
+    display: block;
+  }
+  nav .search-icon,
+  nav .menu-icon span{
+    display: block;
+  }
+  nav .menu-icon span.hide,
+  nav .search-icon.hide{
+    display: none;
+  }
+  nav .cancel-icon.show{
+    display: block;
+  }
+}
+nav .logo.space{
+  color: red;
+  padding: 0 5px 0 0;
+}
+@media (max-width: 980px){
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 20px;
+  }
+  nav form{
+    right: 30px;
+  }
+}
+@media (max-width: 350px){
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 10px;
+    font-size: 16px;
+  }
+}
+
+}
+
+img { 
+
+            border-radius: 98%;
+            items-align-items: left;
+  }   
+   </style>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <div class="logo" <span class="five">&#x1F44A;</span>
+            Pollution Net.
+         </div>
+         
+         <div class="nav-items">
+           <li class="nav-item">
+          <a href="#home" class="nav-link" id="nav-link">Home</a>
+          
+        </li>
+        <li class="nav-item">
+          <a href="#objective" class="nav-link" id="nav-link">Objective</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link" id="nav-link"
+            >Contact</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="#sub" class="nav-link" id="nav-link">My Cart</a>
+         <li><div class="img">
+         <img src= 
+"https://assets.codepen.io/285131/author-3.png"
+        alt="user logo" 
+            width="110" height="110" 
+            border="3px solid"> 
+            
+ 
+</div>
+         </li>
+        </li>
+             <div class="cancel-icon">
+            <span class="fas fa-times"></span>
+         </div>
+         </div>
+         <div class="search-icon">
+            <span class="fas fa-search"></span>
+         </div>
+         <div class="cancel-icon">
+            <span class="fas fa-times"></span>
+         </div>  </style>
+         <form action="#">
+            <input type="search" class="search-data" placeholder="click on the icon to Search..." required>
+                  <button onclick="myFunc()">Click ... </button> 
+
+  
+
+    <!--script to redirect to another webpage-->
+
+    <script> 
+
+        function myFunc() { 
+
+            location.replace("https://en.wikipedia.org/w/index.php?title=Special:Search&search="); 
+        } 
+
+    </script> 
+
+         </form>
+      </nav>
+      <script>
+         const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+         searchBtn.onclick = ()=>{
+           form.classList.add("active");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+      </script>
+      <br><br>
+      
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web page CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+     <link rel="preload" href="print/css/styles.css" />
+
+    <!-- Simple lightbox CSS -->
+    <link rel="stylesheet" href="assets/css/simple-lightbox.min.css" />
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icons/favicon-16x16.png"
+    />
+
+    <title>Water TV Landing Page</title>
+  </head>
+  <body>
+  <style>
+  
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+body{
+  background-color:  ;
+}
+/* CSS Variables */
+:root {
+  --normal-font: 400;
+  --bold-font: 600;
+  --bolder-font: 900;
+  --primary-color: #0652dd;
+  --secondary-color: #ea2027;
+  --line-height: 1.7rem;
+  --transition: 0.4s ease-in;
+}
+/* Smooth scroll effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+ body {
+  font-family: "Roboto", sans-serf;
+  padding: 10px 12px;
+  }
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            animation: gradientText 5s ease-in-out infinite;
+        }
+  
+        @keyframes gradientText {
+            0% {
+                color: red;
+            }
+  
+            25% {
+                color: yellow;
+            }
+  
+            50% {
+                color:#ff3d00;
+            }
+  
+            100% {
+                color: #ff1493;
+            }
+        }
+
+
+
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+.label {
+  width: 50px;
+  height: 29px;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  padding: 6px;
+  position: relative;
+}
+.switcher {
+  background-color: #fff;
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+.moon {
+  color: #ffa502;
+}
+
+.sun {
+  color: #ff4757;
+}
+.checkbox:checked + .label .switcher {
+  transform: translateX(24px);
+}
+body.dark {
+  background-color: #1e272e;
+}
+
+body.dark .bar {
+  background-color: #fff;
+}
+
+body.dark p {
+  color: #fff;
+}
+
+body.dark h3 {
+  color: #fff;
+}
+
+body.dark nav {
+  background-color: #1e272e;
+  box-shadow: 2px 3px 2px #111010;
+}
+
+body.dark ul {
+  background-color: #1e272e;
+}
+
+body.dark .name {
+  color: var(--primary-color);
+}
+
+body.dark .role {
+  color: var(--secondary-color);
+}
+
+body.dark footer {
+  color: #fff;
+  border-top: 1px solid #111010;
+  box-shadow: 0px -2px 3px #111010;
+}
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 420px) {
+  .hero {
+    max-width: 330px;
+  }
+  .social {
+  text-align: center;
+  margin: 2rem;
+}
+
+.socicons {
+  font-size: 2.3rem;
+   background-color: var(--primary-color);
+  color: #fff;
+  backgroundColor: '#3b5998',
+}
+ footer {
+  border-top: 1px solid #f1f1f1;
+  box-shadow: 0px -2px 3px #f1f1f1;
+  text-align: center;
+  padding: 2rem;
+} 
+.sub {
+  margin-top: 2rem;
+  padding: 0 10px;
+}
+
+.sub h3 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  margin: 0.4rem 2rem;
+   padding: 0 10px;
+}
+.email-sub {
+  padding: 0.2rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+.email-sub:focus {
+  border: 1px solid var(--secondary-color);
+  outline: none;
+}
+.submit-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.3rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #095cf7;
+}
+
+  </style>
+  <br></br>    
+    <!-- Dark/light theme switcher -->
+<div class="theme-switch">
+    <input type="checkbox" class="checkbox" id="checkbox" />
+    <label for="checkbox" class="label">
+       <ion-icon name="partly-sunny-outline" class="sun"></ion-icon>
+       <ion-icon name="moon-outline" class="moon"></ion-icon>
+       <div class="switcher"></div>
+    </label>
+    <script>
+    const checkbox = document.querySelector("#checkbox");
+
+checkbox.addEventListener("change", () => {
+  // Toggle website theme
+  document.body.classList.toggle("dark");
+});
+    </script>
+</div>
+</br>
+ <br></br>
+ <!-- Home section -->
+ <br>
+<!-- Samuel Odame -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>water pollution  Website HTML and CSS | Samuel</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Links For Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  </head>
+  <body>
+  <style>
+  /* Importing Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  color: #fff;
+  font-weight: 600;
+  font-size: 2.1rem;
+  text-decoration: none;
+}
+
+.navbar .logo span {
+  color: #C06B3E;
+}
+
+.navbar .menu-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #C06B3E;
+}
+
+.hero-section {
+  height: 135vh;
+  background-color: #000336;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero-section .content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  color: #fff;
+}
+
+.hero-section .content h2 {
+  font-size: 3rem;
+  max-width: 600px;
+  line-height: 70px;
+}
+
+.hero-section .content p {
+  font-weight: 300;
+  max-width: 600px;
+  margin-top: 15px;
+}
+
+.hero-section .content button {
+  background: orange;
+  padding: 12px 30px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin-top: 38px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+.main-section .content button {
+  background:;
+  padding: 12px 30px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin-top: 38px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.hero-section .content button:hover {
+  color: #fff;
+  background: #C06B3E;
+}
+
+
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  .hero-section .content {
+    text-align: center;
+  }
+  
+
+  .hero-section .content :is(h2, p) {
+    max-width: 100%;
+  }
+
+  .hero-section .content h2 {
+    font-size: 2.3rem;
+    line-height: 60px;
+  }
+  
+  .hero-section .content button {
+    padding: 9px 18px;
+  }
+}
+audio{background: #ff1493;
+
+}
+  </style>
+  <br></br>
+    <section class="hero-section">
+      <div class="content">
+       <h2>Eliminating Water Pollution in my community</h2>
+
+<p>Hey there,</p>
+
+<p>So, like, in the eastern part of Ghana, we've got this big problem called galamsey, and it's, like, messing up our water, making it all brown and gross, even for the poor animals. It totally bums me out, you know?
+
+I've been thinking about it, and I want to make this cool water purifier thing to fix it. But, you know what? It's not just about technology; it's about changing the way people think. We gotta care about our waters, man, and keep them clean.
+
+So, like, let's work together to save our waters, because they're super important, and we've totally got this! 🌊✌️</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Galamsey_in_Ghana.jpg" width="400" height="200">      
+        </p>
+        </br>
+        
+        <a href="https://www.nrdc.org/stories/water-pollution-everything-you-need-know#categories"><button>Learn more</button></a>
+        <br> 
+      </div>
+    </section> 
+    <br>
+    <br></br>
+<section class="main" id="home">
+<h1>Pollution</h1><div class="container">
+    
+        
+        <ul class="controls">
+          <li class="row from">
+            <div class="icons">
+              <i id="from" class="fas fa-volume-up"></i>
+              <i id="from" class="fas fa-copy"></i>
+            </div>
+            <select></select>
+<p>Pollution is the introduction of harmful and poisonous substances into the environment usually by activities of human which reduces the quality of the it </p>
+ <img
+src="https://cdn.classfmonline.com/cfoZ41e/imagelib/thumbs/85275757.jpg" width="400" height="200"> 
+<br>
+<marquee behavior="scroll" direction="left">
+Explore some activities contributing to Water pollution....
+</marquee>
+</br>
+<h2>Other Human activities contributing to water pollution </h2>
+<br>
+<li>1. **Trashy Littering:** Dropping trash on the ground can end up in our waterways when it rains. Avoid it by using trash cans and recycling bins.</li>
+</br>
+<br>
+<li>2. **Chemical Dumping:** Don't pour chemicals like paint or oil down the drain. Dispose of them properly at recycling centers or hazardous waste facilities.</li>
+</br>
+<br>
+<li>3. **Overusing Fertilizers:** Using too much fertilizer on lawns or gardens can lead to nutrient runoff into water. Follow recommended guidelines for fertilization to prevent this.</li>
+</br>
+<br>
+<h3>EFFECT</h3>
+<li><strong>High cost of water treatment:</strong> Treating Polluted water cost very much especially for the whole nation. The government then spend a lot of money in doing this which also weakens the financial standard of the country</li>
+<br>
+<li><strong>Destruction of aquatic life:</strong> Contaminated water may destruct and even kill the aquatic animals which may lead to shortage of fishes</li>
+</br>
+<br>
+<li><strong>Outbreak of water borne diseases:</strong> The more the polluted water, the more the diseases. Polluted water is unsafe to human life. </li>
+</br>
+<p>Let's all be mindful and keep our waters clean! 🌊🚯</p>
+</br>
+		<br></br>		
+			
+			<div class="pre-content heading-holder">
+				<div class="page-heading">
+					<h1 id="firstHeading" class="firstHeading mw-first-heading">Water Heroes</h1>
+					<div class="tagline"></div>
+				</div>
+				<p>Some awesome influencers are stepping up to tackle water pollution too! Like this amazing young woman who swam across Volta Lake to shine a spotlight on the issue. 🏊‍♀️🌟 #WaterHeroes
+					<iframe src=
+"https://www.voaafrica.com/a/ghanaian-activist-swims-volta-river-to-spotlight-pollution/7049587.html"
+            height="300"
+            width="400"
+            style="border: 4px solid orange">
+    </iframe>
+    <br></br>
+    
+	<script type="text/javascript" src="script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script>
+		$(window).on('scroll', function(){
+  			if($(window).scrollTop()){
+  			  $('nav').addClass('black');
+ 			 }else {
+ 		   $('nav').removeClass('black');
+ 		 }
+		})
+	</script>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 5px;
+}
+.video{ align-items: center;
+padding: 5px ;
+}
+
+/*TEAM SECTION*/
+.totalcard {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+.totalcard .card {
+	margin: 50px;
+	width: 300px;
+	border-radius: 10px;
+	background: #fff;
+}
+.totalcard .card{
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.4),
+					0 0 10px rgba(0,0,0,0.3);
+}
+.card:nth-child(1){
+	border-top: 5px solid green;
+}
+.card:nth-child(2){
+	border-top: 5px solid blue;
+}
+.card:nth-child(1):hover {
+	box-shadow: inset 0px 0px 10px rgba(0,255,0,0.5),
+				1px 1px 30px rgba(0,255,0,0.5);
+}
+.card:nth-child(2):hover {
+	box-shadow: inset 0px 0px 10px rgba(0,0,255,0.5),
+				1px 1px 30px rgba(0,0,255,0.5);
+}
+.totalcard .card img {
+	width: 100px;
+	height: 100px;
+	margin-top: 5px;
+	cursor: pointer;
+	border-radius: 50px;
+	transition-duration: .8s;
+}
+.totalcard .card img:hover {
+	transform: scale(3.5);
+	border-radius: 0;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+#detail p{
+	font-size: 15px;
+	line-height: 25px;
+	font-variant: small-caps;
+	text-align: center;
+	margin: 25px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+#detail button {
+	outline: none;
+	border-radius: 10px;
+	border-style: none;
+	border: 1px solid black;
+	padding: 9px 25px;
+	cursor: pointer;
+	transition-duration: .4s;
+}
+#detail a {
+	bottom: 80px;
+	text-decoration: none;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	margin-left: 90px;
+	align-self: center;
+}
+.btn-roshan:hover {
+	background: rgba(0,255,0,0.7);
+	color: #fff;
+}
+.btn-roshan2:hover {
+	background: rgba(0,0,255,0.5);
+	color: #fff;
+}
+.card-title {
+	font-size: 17px;
+	color: #343A40;
+	padding: 20px;
+	font-weight: 700;
+}
+ {
+	padding: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	color: #2E3D49;
+	margin-bottom: 10px;
+}
+
+/*SCROLLING TEXT*/
+.marqu {
+	text-align: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 20px;
+	padding: 10px;
+}
+
+
+
+
+</style>
+
+			
+			
+<div class="video">
+<h3>Solving water pollution</h3>
+<br>
+<li>
+<strong>public Education:</strong> Establishing water safety based institution will also help in eliminating water pollution.
+</li>
+</br>
+<br>
+<li>
+<strong>Teamwork:</strong> Building team spirit to eliminate or to rise against water pollution will be a major solution to utilize water safety.
+</li>
+</br>
+</div>
+
+<!-- TEAM -->
+	<div class="diffSection" id="team_section">
+		<center><p style="font-size: 50px; padding-top: 70px; padding-bottom: 60px;">I'm the Creator</p></center>
+		<div class="totalcard">
+			<div class="card">
+				<center><img src="images/creator/roshan1.jpeg"></center>
+				<center><div class="card-title">Samuel Odame</div>
+				<div id="detail">
+					<p>“ You can't teach a student a lesson for a day; but if you can teach him to learn by creating curiosity, he will continue the learning process as long as he lives “</p>
+					<div class="duty"></div>
+					<a href="https://www.linkedin.com/in/roshan-kumar-a18b76179/" target="_blank"><button class="btn-roshan">Follow +</button></a>
+				</div>
+				</center>
+			</div>
+		</div>
+	</div>
+</section>
+<br>
+<br></br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Camel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+   
+
+    
+
+    .le {
+      float: left;
+      width: 180px;
+      margin: 0;
+      padding: ;
+    }
+
+    .cont {
+      margin-left: 190px;
+      border-left: 1px solid #d4d4d4;
+      padding: 1em;
+      overflow: hidden;
+    }
+
+ .g1 {
+font-size: 40px;
+}
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin: 30px 0;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      padding: 8px;
+    }
+
+    tr:nth-child(1) {
+      background-color: #84e4e2;
+      color: white;
+    }
+
+    tr td i.fas {
+      display: block;
+      font-size: 35px;
+      text-align: ;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+ <br>
+    <aside class="le">
+    <section id="objective">
+    <div class="g1">
+    <h1 class="center">My Bio</h1>
+    </div>
+       <img src="https://assets.codepen.io/285131/author-3.png" width="160px" />
+      
+      <br></br>
+      <p>"Do something important in life. Learn to keep our water bodies safe and save your life."<br>- Senior Samuel</p>
+    </aside>
+    <main class="cont">
+      <h4>About Me</h4>
+      <p>I'm a student of Effiduase Presby Basic school and a strong activist in programming.Founder of pollution net.<strong>
+      Im also a GSTEP ambassador for Eastern Region</strong></p>
+      <img alt="" id="dimg_1" src="data:image/jpeg;base64,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" data-atf="12" data-iml="1695039648980" data-frt="0"></div><br></br>
+      <h4>My Career</h4>
+      <p>I work as a web developer for a company that makes websites for water pollution issues .</p>
+      <hr><br>
+      <h4>How Can I Help You?</h4>
+      <table>
+        <tr>
+          <th>SKILL 1</th>
+          <th>SKILL 2</th>
+        
+        </tr>
+        <tr>
+          <td><i class="fas fa-pen"></i></td>
+          <td><i class="fas fa-archive"></i></td>
+          
+        </tr>
+        <tr>
+          <td>Font-end development </td>
+          <td>Software development (figma)</td>
+          
+        
+      </table>
+      <form action="mailto: samodame2009@gmail.com">
+        <label>Email: <input type="text" name="email" required></label><br>
+        <label> Mobile: <input type="text" name="mobile" required> </label><br>
+        
+          <textarea type="comments" name="text" required rows="4">Enter your message</textarea><br>
+    <button>submit</button>
+    </form>
+    </main>
+    </section>
+    
+
+</br>
+<div class="audio">
+<audio controls > 
+
+        <source src="https://downgh.com/wp-content/uploads/2023/09/Amerado-Kwaku-Ananse-DownGh.com_.mp3" type="audio/mp3">       
+  </audio> 
+<audio controls> 
+
+        <source src= 
+"https://www.crateshub.com/images/Music/Single/black-sherif-ankonam-prod-by-trino-www.crateshub.com.mp3"
+
+        type="audio/mp3"> 
+
+    </audio> 
+    </div>
+    <br></br>
+</section>
+<br></br>
+
+  
+<body>
+<style>
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 codewithsadee
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /**
+   * colors
+   */
+
+  --eerie-black_80: hsla(225, 9%, 9%, 0.8);
+  --eerie-black_60: hsla(225, 9%, 9%, 0.6);
+  --eerie-black: hsl(225, 9%, 9%);
+  --light-gray-1: hsl(0, 0%, 80%);
+  --light-gray-2: hsl(240, 2%, 81%);
+  --gainsboro: hsl(240, 9%, 91%);
+  --cultured: hsl(300, 8%, 95%);
+  --blue-ryb: hsl(232, 100%, 60%);
+  --white_20: hsla(0, 0%, 100%, 0.2);
+  --white: hsl(0, 0%, 100%);
+
+  /**
+   * typography
+   */
+
+  --ff-inter: 'Inter', sans-serif;
+
+  --fs-1: 3.6rem;
+  --fs-2: 3.2rem;
+  --fs-3: 2.4rem;
+  --fs-4: 2.2rem;
+  --fs-5: 2rem;
+  --fs-6: 1.8rem;
+  --fs-7: 1.5rem;
+  --fs-8: 1.4rem;
+  --fs-9: 1.3rem;
+
+  --fw-700: 700;
+  --fw-500: 500;
+  --fw-300: 300;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 50px;
+
+  /**
+   * radius
+   */
+
+  --radius-16: 16px;
+  --radius-pill: 200px;
+  --radius-circle: 50%;
+
+  /**
+   * transition
+   */
+
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  outline: none;
+}
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+
+
+body.active { overflow: hidden; }
+
+:focus-visible { outline-offset: 4px; }
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.section { margin-inline: 15px; }
+
+.hover\:underline { text-underline-offset: 3px; }
+
+.hover\:underline:is(:hover, :focus) { text-decoration: underline; }
+
+.section:not(.header, .footer-bottom) {
+  padding-block-end: var(--section-padding);
+  border-block-end: 1px solid var(--light-gray-2);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 { line-height: 1.2; }
+
+.h1,
+.h2 { font-weight: var(--fw-300); }
+
+.h1 { font-size: var(--fs-1); }
+
+.h2 { font-size: var(--fs-2); }
+
+.h3 { font-size: var(--fs-3); }
+
+.h4 { font-size: var(--fs-4); }
+
+.h5 { font-size: var(--fs-6); }
+
+.newsletter-form {
+  position: relative;
+  max-width: 400px;
+}
+
+.newsletter-form .email-field {
+  background-color: var(--cultured);
+  color: inherit;
+  padding: 14px 20px;
+  padding-inline-end: 140px;
+  border-radius: var(--radius-pill);
+}
+
+.newsletter-form .email-field:focus { background-color: var(--gainsboro); }
+
+.newsletter-form .email-field::placeholder { color: var(--eerie-black_60); }
+
+.newsletter-form .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.btn {
+  background-color: var(--eerie-black);
+  color: var(--white);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  line-height: 1.3;
+  padding: 11px 25px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-1);
+}
+
+.btn:is(:hover, :focus) { background-color: var(--blue-ryb); }
+
+.section-subtitle { padding-block: 15px; }
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray-1);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.has-scrollbar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: inline mandatory;
+  padding-block-end: 20px;
+  margin-block-end: -20px;
+  margin-inline: -15px;
+  padding-inline: 15px;
+}
+
+.has-scrollbar::-webkit-scrollbar { height: 10px; }
+
+.has-scrollbar::-webkit-scrollbar-track { background: transparent; }
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: var(--radius-pill);
+}
+
+.has-scrollbar::-webkit-scrollbar-button { width: 10px; }
+
+.has-scrollbar:is(:hover, :focus-within)::-webkit-scrollbar-thumb { background-color: var(--light-gray-1); }
+
+.scrollbar-item {
+  min-width: 70%;
+  scroll-snap-align: center;
+}
+
+.blog-card .card-banner {
+  position: relative;
+  border-radius: var(--radius-16);
+  margin-block-end: 15px;
+}
+
+.avatar-list {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.avatar-list.absolute {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.avatar-item:not(:first-child) { margin-inline-end: -15px; }
+
+.avatar {
+  width: 40px;
+  border-radius: var(--radius-circle);
+  background: none;
+  border: 5px solid var(--white_20);
+  transition: var(--transition-1);
+  will-change: transform;
+}
+
+.avatar-list.absolute .avatar:is(:hover, :focus) {
+  transform: scale(0.9);
+  border-color: var(--white);
+}
+
+.card-meta-list {
+  display: flex;
+  gap: 5px;
+}
+
+.card-tag {
+  background-color: var(--cultured);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-1);
+}
+
+.card-tag:is(:hover, :focus) { background-color: var(--gainsboro); }
+
+.blog-card .card-title {
+  margin-block: 8px 12px;
+  text-decoration-thickness: 2px;
+}
+
+.blog-card .card-text {
+  font-size: var(--fs-8);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding-inline-end: 20px;
+}
+
+.grid-list {
+  display: grid;
+  gap: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+  #HERO
+\*-----------------------------------*/
+
+.newsletter-text { display: none; }
+
+.hero { padding-block-start: 10px; }
+
+.hero-title { margin-block-end: 25px; }
+
+
+
+
+
+/*-----------------------------------*\
+  
+
+/*-----------------------------------*\
+  #RECOMMENDED POST
+\*-----------------------------------*/
+
+.section.recommended { border-block-end: none; }
+
+.recommended .grid-list {
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.recommended .blog-card { margin-block-end: 5px; }
+
+
+
+
+
+/*-----------------------------------*\
+  #NEWSLETTER
+\*-----------------------------------*/
+
+.newsletter { padding-block-start: 40px; }
+
+.newsletter .section-title { margin-block-end: 25px; }
+
+
+
+
+
+/*-----------------------------------*\
+  
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 575px screen
+ */
+
+@media (min-width: 575px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 6rem;
+    --fs-2: 4.8rem;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .section { margin-inline: 30px; }
+
+  .newsletter-form,
+  .btn { --fs-6: 2.2rem; }
+
+  .newsletter-form .email-field {
+    font-size: var(--fs-6);
+    padding-inline-end: 170px;
+  }
+
+  .btn { padding: 14px 30px; }
+
+  .section-subtitle { font-size: var(--fs-6); }
+
+  .has-scrollbar {
+    margin-inline: -30px;
+    padding-inline: 30px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-button { width: 15px; }
+
+  .scrollbar-item { min-width: 40%; }
+
+  .grid-list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+
+
+
+  /**
+   
+
+
+  /**
+   
+   * RECOMMENDED POST, FOOTER
+   */
+
+  .recommended .grid-list,
+  .footer-top { grid-template-columns: repeat(3, 1fr); }
+
+  .footer-brand { grid-column: 1 / 4; }
+
+  .footer-text {
+    max-width: 400px;
+    margin-block-end: 20px;
+  }
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 768px screen
+ */
+
+@media (min-width: 768px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 7.2rem;
+    --fs-2: 5.5rem;
+
+    /**
+     * radius
+     */
+
+    --radius-16: 26px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .section { margin-inline: 50px; }
+
+  .has-scrollbar {
+    margin-inline: -50px;
+    padding-inline: 50px;
+    gap: 15px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-button { width: 25px; }
+
+  .scrollbar-item { min-width: 30%; }
+
+  .grid-list { gap: 40px 15px; }
+
+
+
+  /**
+   
+
+
+  /**
+   * RECENT POST
+   */
+
+  .top-author {
+    display: block;
+    text-align: right;
+  }
+
+  .recent .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: 10px;
+  }
+
+  .top-author .avatar-item:not(:first-child) { margin-inline-end: -25px; }
+
+  .top-author .span {
+    color: var(--eerie-black_80);
+    font-size: var(--fs-8);
+    margin-block-start: 10px;
+  }
+
+  .avatar.large {
+    border: 6px solid var(--white);
+    width: 70px;
+  }
+
+  .avatar.large:is(:hover, :focus) { transform: translateY(-3px); }
+
+
+
+  /**
+   * RECOMMENDED POST
+   */
+
+  .recommended .grid-list {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 15px;
+  }
+
+
+
+  /**
+   
+
+
+
+
+/**
+ * responsive for large than 992px screen
+ */
+
+@media (min-width: 992px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 8.8rem;
+    
+    /**
+     * spacing
+     */
+
+    --section-padding: 60px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .section { margin-inline: 60px; }
+
+  .has-scrollbar {
+    margin-inline: -60px;
+    padding-inline: 60px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-button { width: 30px; }
+
+  .btn {
+    --fs-6: 2.4rem;
+    padding: 18px 36px;
+  }
+
+  .newsletter-form { max-width: 450px; }
+
+  .newsletter-form .email-field {
+    padding-block: 18px;
+    padding-inline-start: 30px;
+  }
+
+  .blog-card .card-title { padding-inline-end: 15px; }
+
+  .blog-card .card-text { font-size: unset; }
+
+  .grid-list { grid-template-columns: repeat(3, 1fr); }
+
+
+
+  /**
+   
+  /**
+   * HERO
+   */
+
+  .hero { padding-block-start: 25px; }
+
+  .hero-title { margin-block-end: 30px; }
+
+  .hero .newsletter-text {
+    display: block;
+    max-width: 400px;
+    color: var(--eerie-black_80);
+    line-height: 1.3;
+  }
+
+  .hero .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+
+
+  /**
+   * RECENT POST
+   */
+
+  .top-author .avatar { width: 85px; }
+
+
+
+  /**
+   * RECOMMENDED POST
+   */
+
+  .recommended .grid-list { grid-template-columns: repeat(6, 1fr); }
+
+
+
+  /**
+   * NEWSLETTER
+   */
+
+  .newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .newsletter .section-title { margin-block-end: 0; }
+
+}
+
+
+
+
+
+/**
+ 
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 9.2rem;
+    --fs-2: 6rem;
+    --fs-3: 2.6rem;
+    --fs-4: 2.4rem;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .section { margin-inline: 70px; }
+
+  .has-scrollbar {
+    margin-inline: -70px;
+    padding-inline: 70px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-button { width: 35px; }
+
+  .card-tag {
+    --fs-9: 1.4rem;
+    padding: 4px 10px;
+  }
+
+  .grid-list { row-gap: 50px; }
+
+
+
+  /**
+   * HERO
+   */
+
+  .section.hero { padding-block: 50px 80px; }
+
+  .hero-title { margin-block-end: 50px; }
+
+
+
+  /**
+   * RECENT POST
+   */
+
+  .top-author .avatar { width: 100px; }
+
+  .recent .btn { margin-block-start: 70px; }
+
+
+
+  /**
+   
+</style>
+
+  <!-- 
+    
+
+
+
+  <!-- 
+    - #SEARCH BAR
+  -->
+
+  
+
+    </div>
+
+    
+  </div>
+
+  <div class="overlay" data-overlay data-search-toggler></div>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="home">
+      <section id="sub">
+        <div class="container">
+
+          <h1 class="h1 hero-title">
+            <strong class="strong">Hey, we're pollution net..</strong> See our thoughts, stories and ideas.
+          </h1>
+
+          <div class="wrapper">
+
+            <form action="mailto: samodame2009@gmail.com" class="newsletter-form">
+              <input type="email" name="email_address" required placeholder="Your email address" class="email-field">
+
+                       <div class="link-btn">
+              <button type="submit">Send</button>
+              </div>
+             
+              </div>
+            </form>
+
+            <p class="newsletter-text">
+              Get the email newsletter and unlock access to members-only content and updates
+            </p>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURED POST
+      -->
+
+      <section class="section featured" aria-label="featured post">
+        <div class="container">
+
+          <p class="section-subtitle">
+            Get started with our <strong class="strong">best stories</strong>
+          </p>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 500; --height: 600;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Galamsey_in_Ghana.jpg" width="500" height="600" loading="lazy"
+                    alt="New technology is not good or evil in and of itself" class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Galamsey_in_Ghana.jpg" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Galamsey_in_Ghana.jpg" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+                  
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 500; --height: 600;">
+                  <img src="https://cdn.classfmonline.com/cfoZ41e/imagelib/thumbs/85275757.jpg" width="500" height="600" loading="lazy"
+                    alt="It’s a new era in design, there are no rules" class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://cdn.classfmonline.com/cfoZ41e/imagelib/thumbs/85275757.jpg" 100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+               
+
+                  </ul>
+
+                  
+                </div>
+
+              </div>
+            </li>
+
+            
+                
+
+                
+
+                  
+
+                  
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="blog-card">                                                                               
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+
+                
+                                   </ul>
+
+                  
+
+          
+      </section>
+
+
+
+
+
+      <!-- 
+        - #RECOMMENDED POST
+      -->
+
+      <section class="section recommended" aria-label="recommended post">
+        <div class="container">
+
+          <p class="section-subtitle">
+            <strong class="strong">Recommended</strong>
+          </p>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="data:image/jpeg;base64,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" data-atf="12" data-iml="1695039648902" data-frt="0" width="300" height="360" loading="lazy"
+                    alt="The trick to getting more done is to have the freedom to roam around " class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png"lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+
+                  
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="data:image/jpeg;base64,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" width="300" height="360" loading="lazy"
+                    alt="Every day, in every city and town across the country " class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+
+                  
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="data:image/jpeg;base64,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" width="300" height="360" loading="lazy"
+                    alt="I work best when my space is filled with inspiration " class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="data:image/jpeg;base64,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" width="300" height="360" loading="lazy"
+                    alt="I have my own definition of minimalism " class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="https://assets.codepen.io/285131/author-3.png" width="300" height="360" loading="lazy"
+                    alt="Change your look and your attitude " class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="data:image/jpeg;base64,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" width="300" height="360" loading="lazy"
+                    alt="The difference is quality " class="img-cover">
+
+                  <ul class="avatar-list absolute">
+
+                    <li class="avatar-item">
+                      <a href="#" class="avatar img-holder" style="--width: 100; --height: 100;">
+                        <img src="https://assets.codepen.io/285131/author-3.png" width="100" height="100" loading="lazy" alt="Author"
+                          class="img-cover">
+                      </a>
+                    </li>
+
+                  </ul>
+                </figure>
+
+                
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <section class="section newsletter">
+
+        <h2 class="h2 section-title">
+          Subscribe to <strong class="strong">new posts</strong>
+        </h2>
+
+        <form action="" class="newsletter-form">
+          <input type="email" name="email_address" placeholder="Your email address" required class="email-field">
+                   <div class="link-btn">  
+             <button class="submit">Subscribe</button>
+              </div>
+             
+              </div>
+        </form>
+
+      </section>
+
+    </article>
+  </main>
+<!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>  
+</body>
+</html>
+    <script>
+      const header = document.querySelector("header");
+      const hamburgerBtn = document.querySelector("#hamburger-btn");
+      const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+      // Toggle mobile menu on hamburger button click
+      hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+      // Close mobile menu on close button click
+      closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    </script>
+    </br>
+    </section>
+<br></br>
+<section id="contact">
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*
+
+footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background:#000336;
+  color: #d9d9d9;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+.main-content{
+  display: flex;
+}
+.main-content .box{
+  flex-basis: 50%;
+  padding: 10px 20px;
+}
+.box h2{
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.box .content{
+  margin: 20px 0 0 0;
+  position: relative;
+}
+.box .content:before{
+  position: absolute;
+  content: '';
+  top: -10px;
+  height: 2px;
+  width: 100%;
+  background: #1a1a1a;
+}
+.box .content:after{
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 15%;
+  background: #f12020;
+  top: -10px;
+}
+.left .content p{
+  text-align: justify;
+}
+.left .content .social{
+  margin: 20px 0 0 0;
+}
+.left .content .social a{
+  padding: 0 2px;
+}
+.left .content .social a span{
+  height: 40px;
+  width: 40px;
+  background: #1a1a1a;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.left .content .social a span:hover{
+  background: #f12020;
+}
+.center .content .fas{
+  font-size: 1.4375rem;
+  background: #1a1a1a;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.center .content .fas:hover{
+  background: #f12020;
+}
+.center .content .text{
+  font-size: 1.0625rem;
+  font-weight: 500;
+  padding-left: 10px;
+}
+.center .content .phone{
+  margin: 15px 0;
+}
+.right form .text{
+  font-size: 1.0625rem;
+  margin-bottom: 2px;
+  color: #fff;
+}
+.right form .msg{
+  margin-top: 10px;
+}
+.right form input, .right form textarea{
+  width: 100%;
+  font-size: 1.0625rem;
+  background: #dfe3ee;
+  padding-left: 10px;
+  border: 1px solid #222222;
+}
+.right form input:focus,
+.right form textarea:focus{
+  outline-color: #3498db;
+}
+.right form input{
+  height: 35px;
+}
+.right form .btn{
+  margin-top: 10px;
+}
+.right form .link-btn{
+  height: 40px;
+  width: 20%;
+  border: display;
+  padding: 12px 12px;
+  outline: display;
+  background: green;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .3s;
+}
+.right form .btn button:hover{
+  background: #000;
+}
+.bottom center{
+  padding: 5px;
+  font-size: 0.9375rem;
+  background: #151515;
+}
+.bottom center span{
+  color: #656565;
+}
+.bottom center a{
+  color: #f12020;
+  text-decoration: none;
+}
+.bottom center a:hover{
+  text-decoration: underline;
+}
+@media screen and (max-width: 900px) {
+  footer{
+    position: relative;
+    bottom: 0px;
+  }
+  .main-content{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .main-content .box{
+    margin: 5px 0;
+  }
+}
+  </style>
+   
+    <footer>
+      <div class="main-content">
+        <div class="left box">
+          <h2>About us</h2>
+          <div class="content">
+            <p>Pollution TV is an offline channel where you can learn more on water safety, get previews of contributors and suggest solutions to Water pollution and related so on.</p>
+            <div class="social">
+              <a href="https://www.facebook.com/GSTEPGH?_rdc=2&_rdr"><span class="fab fa-facebook-f"></span></a>
+              <a href="https://twitter.com/GSTEP_GH"><span class="fab fa-twitter"></span></a>
+              <a href="https://www.instagram.com/gstep_gh/tagged/"><span class="fab fa-instagram"></span></a>
+              <a href="https://www.linkedin.com/company/ghana-science-tech-explorer-prize/"><span class="fab fa-linkedin"></span></a>
+                          <a href="https://youtube.com/c/codingnepal"><span class="fab fa-github"></span></a>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="center box">
+          <h2>Address</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Hon. Hackman ST, resurrection lane.</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">+233 531463661</span>
+            </div>
+            <div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">samodame2009@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right box">
+          <h2>Contact us</h2>
+          <div class="content">
+            <form action="mailto: samodame2009@gmail.com">
+              <div class="email">    
+                <div class="text">Email *</div>
+                <input type="email" required>
+              </div>
+              <div class="msg">
+                <div class="text">Message *</div>
+                <textarea rows="2" cols="25" required></textarea>
+              </div>
+              <div class="btn">
+              </div>
+              <div class="link-btn">
+              <ul>
+             <button type="submit">Send</button>
+             </ul>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <center>
+          <span class="credit">Created by <a href="mailto: samodame2009@gmail.com">Samuel Odame</a> | </span>
+          <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+        </center>
+      </div>
+    </footer>
+    </section>
+  </br>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/650afc4eb1aaa13b7a77ecdc/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script--> 
+      
+   </body>
+</html>
